@@ -1,19 +1,22 @@
 const container = document.querySelector('.container');
-
-function createGrid(){
-    for(let i = 0; i<16; i++)
+function createGrid(x,y){
+    for(let i = 0; i<x*y; i++)
     {
         const grid = document.createElement('div');
+        const growx =  1000 / x ;
+        const growy = 1000/y;
+        grid.setAttribute('style', `width: ${growx}px; height:${growy}px;`)
         container.append(grid);
     }
 }
 function paint(){
-    this.setAttribute('style', 'background-color: black')
+    this.style.backgroundColor = "black";
 }
-
-createGrid();
+createGrid(100,100);
 let grid = container.getElementsByTagName('div');
 let gridList = Array.from(grid);
+
+
 
 for(let i = 0; i < gridList.length; i++)
 {
