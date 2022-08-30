@@ -1,12 +1,43 @@
 const container = document.querySelector('.container');
 const button = document.querySelector('.userInput')
 const resetbtn = document.querySelector('.reset')
+const defaultC = document.querySelector('.defaultC');
+const rainbowC = document.querySelector('.rainbowC');
+
 createGrid(10,10);
 let grid = container.getElementsByTagName('div');
 let gridList = Array.from(grid);
-gridList.forEach(div => {
-    div.addEventListener('mouseover', paint);
-});
+blackColor();
+
+function blackColor()
+{
+    gridList.forEach(div => {
+        div.addEventListener('mouseover', () => {
+            div.style.backgroundColor = "black";
+        });
+    });
+}
+
+function rainbowColor()
+{
+    gridList.forEach(div => {
+        div.addEventListener('mouseover', () =>{
+            div.style.backgroundColor = `rgb(${rgbRandomizer()})`;
+        } )
+    })
+}
+
+function rgbRandomizer(){
+    var rgbvalue = [0,0,0]
+    for(let i = 0; i < 3; i++)
+    {
+       var rgb = Math.random() * (255 - 1) + 1
+       rgb = Math.round(rgb);
+       rgbvalue[i] = rgb;
+    }
+    console.log(rgbvalue.join())
+    return rgbvalue.join()
+}
 
 function createGrid(x,y){
     for(let i = 0; i<x*y; i++)
@@ -19,9 +50,7 @@ function createGrid(x,y){
     }
     return 
 }
-function paint(){
-    this.style.backgroundColor = "black";
-}
+
 function changeGrid(){
     let input = prompt("Please write the size of the grid")
     if(input > 100)
@@ -43,7 +72,7 @@ function changeGrid(){
     grid = container.getElementsByTagName('div');
     gridList = Array.from(grid);
     gridList.forEach(div => {
-        div.addEventListener('mouseover', paint);
+        div.addEventListener('mouseover', blackColor);
     });
     }
 }
@@ -57,3 +86,5 @@ resetbtn.addEventListener('click', () => {
         div.style.backgroundColor="white";
     });
 })
+defaultC.addEventListener('click', blackColor)
+rainbowC.addEventListener('click', rainbowColor)
