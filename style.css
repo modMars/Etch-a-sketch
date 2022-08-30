@@ -3,6 +3,7 @@ html {
 }
 
 *{
+    font-family: 'Dancing Script', cursive;;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -19,7 +20,10 @@ body{
 }
 
 .wrapper{
-
+    background-color: #FF3C35;
+    width: 1250px;
+    height: 1250px;
+    border-radius: 20px;
 }
 
 .container{
@@ -27,26 +31,40 @@ body{
     flex-wrap: wrap;
     width: 1001px;
     height: 1000px;
+    margin-left: 125px;
 }
 
 h1{
     font-size: 8rem;
     color: white;
+    text-align: center;
 }
 
 .container div{
-    border: 1px solid black;
+    border: 1px solid grey;
     background-color: white;
 }
 
 .userInput{
-    background: black;
-    color: white;
-    width: 200px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2rem;
+    font-weight: bold;
+    background: white;
+    color: black;
+    width: 500px;
+    height: 50px;
+    margin: 10px 0px 10px 0px;
+    margin-left: 125px;
+    border-radius: 5px;
 }
 
 .reset{
-    background: black;
-    color: white;
-    width: 200px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2rem;
+    font-weight: bold;
+    background: white;
+    color: black;
+    width: 500px;
+    height: 50px;
+    border-radius: 5px;
 }
